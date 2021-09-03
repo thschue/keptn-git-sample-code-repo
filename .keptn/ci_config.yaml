@@ -1,0 +1,18 @@
+services:
+  - name: main
+    chart_base: main/chart
+  - name: hats
+    chart_base: hats/chart
+  - name: left-arm
+    chart_base: left-arm/chart
+  - name: left-leg
+    chart_base: left-leg/chart
+  - name: right-arm
+    chart_base: right-arm/chart
+  - name: right-leg
+    chart_base: right-leg/chart
+
+
+git_config:
+  user_email: demo@keptn.sh
+  user_name: "PodTatoHead - CI"
