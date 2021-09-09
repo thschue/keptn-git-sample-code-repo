@@ -1,0 +1,23 @@
+stage: dev
+
+# applies to all deployments in this chart
+replicaCount: 2
+
+hats:
+  repositoryBasename: podtato-hats
+  tag: "{{ keptn/ImageVersion }}"
+  serviceType: ClusterIP
+  servicePort: 9001
+
+autoscaling:
+  enabled: true
+  minReplicas: 2
+  maxReplicas: 6
+  targetCPUUtilizationPercentage: 80
+  # targetMemoryUtilizationPercentage: 80
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}

@@ -1,0 +1,14 @@
+apiVersion: v2
+actions:
+  - name: "k6-smoke"
+    events:
+      - name: "sh.keptn.event.smoke-test.triggered"
+    tasks:
+      - name: "k6"
+        files:
+          - k6
+        image: "loadimpact/k6"
+        cmd:
+          - sh
+        args:
+          - /keptn/k6/run-smoke-test.sh

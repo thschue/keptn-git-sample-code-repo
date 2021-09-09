@@ -1,0 +1,18 @@
+stage: staging
+
+# applies to all deployments in this chart
+replicaCount: 2
+
+rightArm:
+  repositoryBasename: podtato-right-arm
+  tag: "{{ keptn/ImageVersion }}"
+  serviceType: ClusterIP
+  servicePort: 9005
+
+autoscaling:
+  enabled: true
+  minReplicas: 2
+  maxReplicas: 6
+  targetCPUUtilizationPercentage: 80
+  # targetMemoryUtilizationPercentage: 80
+

@@ -1,5 +1,6 @@
 services:
-  - name: main
+  - name: dynatrace
+  - name: main 
     chart_base: main/chart
   - name: hats
     chart_base: hats/chart
@@ -7,6 +8,7 @@ services:
     chart_base: left-arm/chart
   - name: left-leg
     chart_base: left-leg/chart
+    ignoreDuplicateGitTag: true
   - name: right-arm
     chart_base: right-arm/chart
   - name: right-leg

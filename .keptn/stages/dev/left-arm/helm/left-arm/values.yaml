@@ -1,0 +1,20 @@
+stage: dev
+
+# applies to all deployments in this chart
+replicaCount: 2
+images:
+  repositoryDirname: ghcr.io/podtato-head
+  pullPolicy: IfNotPresent
+  pullSecrets: []
+
+leftArm:
+  repositoryBasename: podtato-left-arm
+  tag: "{{ keptn/ImageVersion }}"
+  serviceType: ClusterIP
+  servicePort: 9003
+
+autoscaling:
+  enabled: true
+  minReplicas: 2
+  maxReplicas: 6
+  targetCPUUtilizationPercentage: 80

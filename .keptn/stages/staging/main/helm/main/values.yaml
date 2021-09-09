@@ -1,0 +1,19 @@
+stage: staging
+
+# applies to all deployments in this chart
+replicaCount: 2
+
+# keep ports in sync with podtato-services/main/pkg/provider.go
+main:
+  repositoryBasename: podtato-main
+  tag: "{{ keptn/ImageVersion }}"
+  serviceType: ClusterIP
+  servicePort: 9000
+
+autoscaling:
+  enabled: true
+  minReplicas: 2
+  maxReplicas: 6
+  targetCPUUtilizationPercentage: 80
+  # targetMemoryUtilizationPercentage: 80
+

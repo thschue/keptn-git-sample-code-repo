@@ -1,0 +1,21 @@
+stage: staging
+
+# applies to all deployments in this chart
+replicaCount: 2
+images:
+  repositoryDirname: ghcr.io/podtato-head
+  pullPolicy: IfNotPresent
+  pullSecrets: []
+
+leftLeg:
+  repositoryBasename: podtato-left-leg
+  tag: "{{ keptn/ImageVersion }}"
+  serviceType: ClusterIP
+  servicePort: 9002
+
+autoscaling:
+  enabled: true
+  minReplicas: 2
+  maxReplicas: 6
+  targetCPUUtilizationPercentage: 80
+  # targetMemoryUtilizationPercentage: 80
